@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint Calendar · May–June 2026</title>
+<style>
+  :root {
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f4f0;
+    --color-text-primary: #1a1a18;
+    --color-text-secondary: #5a5956;
+    --color-text-tertiary: #9a9890;
+    --color-border-tertiary: rgba(0,0,0,0.1);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background-primary: #1a1a18;
+      --color-background-secondary: #242422;
+      --color-text-primary: #e8e6de;
+      --color-text-secondary: #9a9890;
+      --color-text-tertiary: #6a6860;
+      --color-border-tertiary: rgba(255,255,255,0.1);
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    padding: 32px 24px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  h1 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; padding: 10px 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); font-size: 12px; }
+  .lg-i { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); }
+  .lg-sw { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+  .note { font-size: 11px; color: var(--color-text-secondary); padding: 0 4px; line-height: 1.55; }
+  .note strong { font-weight: 500; color: var(--color-text-primary); }
+  .main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  .cals { display: flex; flex-direction: column; gap: 20px; }
+  .m-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 8px; }
+  .dow, .wk { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .dow { margin-bottom: 2px; }
+  .d-h { font-size: 10px; color: var(--color-text-tertiary); text-align: center; padding: 4px 0; font-weight: 500; }
+  .d-h.sun { color: #C04848; }
+  .d-h.sat { color: #185FA5; }
+  .d { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 52px; font-size: 11px; border-radius: 4px; color: var(--color-text-secondary); gap: 1px; }
+  .d.e { color: transparent; }
+  .d.t { box-shadow: inset 0 0 0 1.5px var(--color-text-primary); font-weight: 500; color: var(--color-text-primary); }
+  .d.qa::after, .d.fix::after, .d.mtg::after { font-size: 8px; font-weight: 500; line-height: 1; opacity: 0.9; letter-spacing: 0.2px; }
+  .d.qa::after { content: 'QA'; }
+  .d.fix::after { content: 'Fix'; }
+  .d.mtg::after { content: 'Mtg'; }
+  .s1 { background: #EEEDFE; color: #3C3489; }
+  .s2 { background: #E1F5EE; color: #085041; }
+  .s3 { background: #FAEEDA; color: #633806; }
+  .s4 { background: #FAECE7; color: #712B13; }
+  @media (prefers-color-scheme: dark) {
+    .s1 { background: #3C3489; color: #CECBF6; }
+    .s2 { background: #085041; color: #9FE1CB; }
+    .s3 { background: #633806; color: #FAC775; }
+    .s4 { background: #712B13; color: #F5C4B3; }
+  }
+  .sps { display: flex; flex-direction: column; gap: 12px; }
+  .sp { padding: 14px; border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); display: flex; flex-direction: column; gap: 10px; }
+  .sp-h { display: flex; align-items: center; gap: 8px; }
+  .sp-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .sp-n { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .sp-dt { font-size: 11px; color: var(--color-text-secondary); margin-left: auto; }
+  .sec { display: flex; flex-direction: column; gap: 4px; }
+  .sec-l { font-size: 10px; color: var(--color-text-tertiary); font-weight: 500; }
+  .sec-i { font-size: 12px; line-height: 1.55; color: var(--color-text-primary); margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 3px; }
+  .sec-i li { padding-left: 10px; position: relative; }
+  .sec-i li::before { content: ''; position: absolute; left: 0; top: 8px; width: 3px; height: 3px; border-radius: 50%; background: var(--color-text-tertiary); }
+  @media (max-width: 600px) {
+    .main { grid-template-columns: 1fr; }
+    body { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Sprint Calendar · May–June 2026</h1>
+
+<div class="legend">
+  <div class="lg-i"><div class="lg-sw s1"></div>Sprint 4 · May 1 – May 14</div>
+  <div class="lg-i"><div class="lg-sw s2"></div>Sprint 5 · May 15 – May 28</div>
+  <div class="lg-i"><div class="lg-sw s3"></div>Sprint 6 · May 29 – Jun 11</div>
+  <div class="lg-i"><div class="lg-sw s4"></div>Sprint 7 · Jun 12 – Jun 25</div>
+</div>
+
+<div class="note"><strong>Fri</strong> = dev meeting (every week). <strong>Mon/Wed</strong> = QA, <strong>Tue/Thu</strong> = QA fix in week 2 of Sprints 4–6 and all of Sprint 7.</div>
+
+<div class="main">
+  <div class="cals">
+
+    <div>
+      <div class="m-title">May 2026</div>
+      <div class="dow">
+        <div class="d-h">Mon</div><div class="d-h">Tue</div><div class="d-h">Wed</div><div class="d-h">Thu</div><div class="d-h">Fri</div><div class="d-h sat">Sat</div><div class="d-h sun">Sun</div>
+      </div>
+      <div class="wk">
+        <div class="d e">27</div><div class="d t">28</div><div class="d e">29</div><div class="d e">30</div><div class="d s1 mtg">1</div><div class="d">2</div><div class="d">3</div>
+      </div>
+      <div class="wk">
+        <div class="d s1">4</div><div class="d s1">5</div><div class="d s1">6</div><div class="d s1">7</div><div class="d s1 mtg">8</div><div class="d">9</div><div class="d">10</div>
+      </div>
+      <div class="wk">
+        <div class="d s1 qa">11</div><div class="d s1 fix">12</div><div class="d s1 qa">13</div><div class="d s1 fix">14</div><div class="d s2 mtg">15</div><div class="d">16</div><div class="d">17</div>
+      </div>
+      <div class="wk">
+        <div class="d s2">18</div><div class="d s2">19</div><div class="d s2">20</div><div class="d s2">21</div><div class="d s2 mtg">22</div><div class="d">23</div><div class="d">24</div>
+      </div>
+      <div class="wk">
+        <div class="d s2 qa">25</div><div class="d s2 fix">26</div><div class="d s2 qa">27</div><div class="d s2 fix">28</div><div class="d s3 mtg">29</div><div class="d">30</div><div class="d">31</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="m-title">June 2026</div>
+      <div class="dow">
+        <div class="d-h">Mon</div><div class="d-h">Tue</div><div class="d-h">Wed</div><div class="d-h">Thu</div><div class="d-h">Fri</div><div class="d-h sat">Sat</div><div class="d-h sun">Sun</div>
+      </div>
+      <div class="wk">
+        <div class="d s3">1</div><div class="d s3">2</div><div class="d s3">3</div><div class="d s3">4</div><div class="d s3 mtg">5</div><div class="d">6</div><div class="d">7</div>
+      </div>
+      <div class="wk">
+        <div class="d s3 qa">8</div><div class="d s3 fix">9</div><div class="d s3 qa">10</div><div class="d s3 fix">11</div><div class="d s4 mtg">12</div><div class="d">13</div><div class="d">14</div>
+      </div>
+      <div class="wk">
+        <div class="d s4 qa">15</div><div class="d s4 fix">16</div><div class="d s4 qa">17</div><div class="d s4 fix">18</div><div class="d s4 mtg">19</div><div class="d">20</div><div class="d">21</div>
+      </div>
+      <div class="wk">
+        <div class="d s4 qa">22</div><div class="d s4 fix">23</div><div class="d s4 qa">24</div><div class="d s4 fix">25</div><div class="d mtg">26</div><div class="d">27</div><div class="d">28</div>
+      </div>
+      <div class="wk">
+        <div class="d">29</div><div class="d">30</div><div class="d e"></div><div class="d e"></div><div class="d e"></div><div class="d e"></div><div class="d e"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sps">
+
+    <div class="sp">
+      <div class="sp-h">
+        <div class="sp-dot s1"></div>
+        <div class="sp-n">Sprint 4</div>
+        <div class="sp-dt">May 1 – May 14</div>
+      </div>
+      <div class="sec">
+        <div class="sec-l">Front end</div>
+        <ul class="sec-i">
+          <li>Temperature + AI insight</li>
+          <li>Medicine + AI insight</li>
+          <li>Note + AI insight</li>
+        </ul>
+      </div>
+      <div class="sec">
+        <div class="sec-l">Backend</div>
+        <ul class="sec-i">
+          <li>Fever · Weight photo</li>
+          <li>Height</li>
+          <li>AI Coach prompt swap</li>
+          <li>RB Weight</li>
+          <li>RB Height</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sp">
+      <div class="sp-h">
+        <div class="sp-dot s2"></div>
+        <div class="sp-n">Sprint 5</div>
+        <div class="sp-dt">May 15 – May 28</div>
+      </div>
+      <div class="sec">
+        <div class="sec-l">Front end</div>
+        <ul class="sec-i">
+          <li>Main + Daily action item</li>
+          <li>PES + AI insight</li>
+          <li>Weight + AI insight</li>
+          <li>Height + AI insight</li>
+        </ul>
+      </div>
+      <div class="sec">
+        <div class="sec-l">Backend</div>
+        <ul class="sec-i">
+          <li>AI Q&amp;A API v1</li>
+          <li>Day2 / Day3 reactivation push</li>
+          <li>One action item on main page (BE)</li>
+          <li>Episode continuity (BE)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sp">
+      <div class="sp-h">
+        <div class="sp-dot s3"></div>
+        <div class="sp-n">Sprint 6</div>
+        <div class="sp-dt">May 29 – Jun 11</div>
+      </div>
+      <div class="sec">
+        <div class="sec-l">Front end</div>
+        <ul class="sec-i">
+          <li>Account + Family Mode</li>
+          <li>Diaper + AI insight</li>
+          <li>Bottle + AI insight</li>
+          <li>Breast + AI insight</li>
+          <li>Solid + AI insight</li>
+        </ul>
+      </div>
+      <div class="sec">
+        <div class="sec-l">Backend</div>
+        <ul class="sec-i">
+          <li>AI Q&amp;A full integration</li>
+          <li>Family Mode (BE)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sp">
+      <div class="sp-h">
+        <div class="sp-dot s4"></div>
+        <div class="sp-n">Sprint 7</div>
+        <div class="sp-dt">Jun 12 – Jun 25</div>
+      </div>
+      <div class="sec">
+        <div class="sec-l">QA</div>
+        <ul class="sec-i">
+          <li>Full integration QA</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+</body>
+</html>
