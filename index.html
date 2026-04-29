@@ -37,7 +37,7 @@
   .legend { display: flex; gap: 14px; flex-wrap: wrap; padding: 10px 14px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); font-size: 12px; }
   .lg-i { display: flex; align-items: center; gap: 6px; color: var(--color-text-secondary); }
   .lg-sw { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
-  .note { font-size: 11px; color: var(--color-text-secondary); padding: 0 4px; line-height: 1.55; }
+  .note { font-size: 11px; color: var(--color-text-secondary); line-height: 1.55; }
   .note strong { font-weight: 500; color: var(--color-text-primary); }
   .main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
   .cals { display: flex; flex-direction: column; gap: 20px; }
@@ -50,19 +50,25 @@
   .d { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 52px; font-size: 11px; border-radius: 4px; color: var(--color-text-secondary); gap: 1px; }
   .d.e { color: transparent; }
   .d.t { box-shadow: inset 0 0 0 1.5px var(--color-text-primary); font-weight: 500; color: var(--color-text-primary); }
-  .d.qa::after, .d.fix::after, .d.mtg::after { font-size: 8px; font-weight: 500; line-height: 1; opacity: 0.9; letter-spacing: 0.2px; }
-  .d.qa::after { content: 'QA'; }
-  .d.fix::after { content: 'Fix'; }
-  .d.mtg::after { content: 'Mtg'; }
+  .d.qa::after, .d.fix::after, .d.mtg::after, .d.ustrip::after { font-size: 8px; font-weight: 500; line-height: 1; opacity: 0.9; letter-spacing: 0.2px; }
+  .d.qa::after   { content: 'QA'; }
+  .d.fix::after  { content: 'Fix'; }
+  .d.mtg::after  { content: 'Mtg'; }
+  .d.ustrip::after { content: 'US Trip'; }
   .s1 { background: #EEEDFE; color: #3C3489; }
   .s2 { background: #E1F5EE; color: #085041; }
   .s3 { background: #FAEEDA; color: #633806; }
   .s4 { background: #FAECE7; color: #712B13; }
+  .holiday { background: #E4E3DF !important; color: #A8A6A2 !important; }
+  .holiday::after { display: none !important; }
+  .ustrip { background: #ADAAA6 !important; color: #2A2826 !important; }
   @media (prefers-color-scheme: dark) {
     .s1 { background: #3C3489; color: #CECBF6; }
     .s2 { background: #085041; color: #9FE1CB; }
     .s3 { background: #633806; color: #FAC775; }
     .s4 { background: #712B13; color: #F5C4B3; }
+    .holiday { background: #2E2D2B !important; color: #6A6860 !important; }
+    .ustrip { background: #5A5754 !important; color: #D4D2CE !important; }
   }
   .sps { display: flex; flex-direction: column; gap: 12px; }
   .sp { padding: 14px; border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); display: flex; flex-direction: column; gap: 10px; }
@@ -87,13 +93,15 @@
 <h1>Sprint Calendar · May–June 2026</h1>
 
 <div class="legend">
-  <div class="lg-i"><div class="lg-sw s1"></div>Sprint 4 · May 1 – May 14</div>
+  <div class="lg-i"><div class="lg-sw s1"></div>Sprint 4 · Apr 30 – May 14</div>
   <div class="lg-i"><div class="lg-sw s2"></div>Sprint 5 · May 15 – May 28</div>
   <div class="lg-i"><div class="lg-sw s3"></div>Sprint 6 · May 29 – Jun 11</div>
   <div class="lg-i"><div class="lg-sw s4"></div>Sprint 7 · Jun 12 – Jun 25</div>
+  <div class="lg-i"><div class="lg-sw" style="background:#E4E3DF;border:0.5px solid #ccc"></div>Holiday</div>
+  <div class="lg-i"><div class="lg-sw" style="background:#ADAAA6"></div>US Trip · Jun 15–21</div>
 </div>
 
-<div class="note"><strong>Fri</strong> = dev meeting (every week). <strong>Mon/Wed</strong> = QA, <strong>Tue/Thu</strong> = QA fix in week 2 of Sprints 4–6 and all of Sprint 7.</div>
+<div class="note"><strong>Fri</strong> = dev meeting &nbsp;·&nbsp; <strong>Mon/Wed</strong> = QA, <strong>Tue/Thu</strong> = QA fix (week 2 of Sprints 4–6) &nbsp;·&nbsp; Sprint 7 = full QA &amp; fix</div>
 
 <div class="main">
   <div class="cals">
@@ -104,10 +112,10 @@
         <div class="d-h">Mon</div><div class="d-h">Tue</div><div class="d-h">Wed</div><div class="d-h">Thu</div><div class="d-h">Fri</div><div class="d-h sat">Sat</div><div class="d-h sun">Sun</div>
       </div>
       <div class="wk">
-        <div class="d e">27</div><div class="d t">28</div><div class="d e">29</div><div class="d e">30</div><div class="d s1 mtg">1</div><div class="d">2</div><div class="d">3</div>
+        <div class="d e">27</div><div class="d e">28</div><div class="d t">29</div><div class="d s1 mtg">30</div><div class="d s1 holiday">1</div><div class="d">2</div><div class="d">3</div>
       </div>
       <div class="wk">
-        <div class="d s1">4</div><div class="d s1">5</div><div class="d s1">6</div><div class="d s1">7</div><div class="d s1 mtg">8</div><div class="d">9</div><div class="d">10</div>
+        <div class="d s1">4</div><div class="d s1 holiday">5</div><div class="d s1">6</div><div class="d s1 fix">7</div><div class="d s1 mtg">8</div><div class="d">9</div><div class="d">10</div>
       </div>
       <div class="wk">
         <div class="d s1 qa">11</div><div class="d s1 fix">12</div><div class="d s1 qa">13</div><div class="d s1 fix">14</div><div class="d s2 mtg">15</div><div class="d">16</div><div class="d">17</div>
@@ -116,7 +124,7 @@
         <div class="d s2">18</div><div class="d s2">19</div><div class="d s2">20</div><div class="d s2">21</div><div class="d s2 mtg">22</div><div class="d">23</div><div class="d">24</div>
       </div>
       <div class="wk">
-        <div class="d s2 qa">25</div><div class="d s2 fix">26</div><div class="d s2 qa">27</div><div class="d s2 fix">28</div><div class="d s3 mtg">29</div><div class="d">30</div><div class="d">31</div>
+        <div class="d s2 holiday">25</div><div class="d s2 fix">26</div><div class="d s2 qa">27</div><div class="d s2 fix">28</div><div class="d s3 mtg">29</div><div class="d">30</div><div class="d">31</div>
       </div>
     </div>
 
@@ -126,16 +134,16 @@
         <div class="d-h">Mon</div><div class="d-h">Tue</div><div class="d-h">Wed</div><div class="d-h">Thu</div><div class="d-h">Fri</div><div class="d-h sat">Sat</div><div class="d-h sun">Sun</div>
       </div>
       <div class="wk">
-        <div class="d s3">1</div><div class="d s3">2</div><div class="d s3">3</div><div class="d s3">4</div><div class="d s3 mtg">5</div><div class="d">6</div><div class="d">7</div>
+        <div class="d s3">1</div><div class="d s3">2</div><div class="d s3 holiday">3</div><div class="d s3">4</div><div class="d s3 mtg">5</div><div class="d">6</div><div class="d">7</div>
       </div>
       <div class="wk">
         <div class="d s3 qa">8</div><div class="d s3 fix">9</div><div class="d s3 qa">10</div><div class="d s3 fix">11</div><div class="d s4 mtg">12</div><div class="d">13</div><div class="d">14</div>
       </div>
       <div class="wk">
-        <div class="d s4 qa">15</div><div class="d s4 fix">16</div><div class="d s4 qa">17</div><div class="d s4 fix">18</div><div class="d s4 mtg">19</div><div class="d">20</div><div class="d">21</div>
+        <div class="d ustrip">15</div><div class="d ustrip">16</div><div class="d ustrip">17</div><div class="d ustrip">18</div><div class="d ustrip mtg">19</div><div class="d ustrip">20</div><div class="d ustrip">21</div>
       </div>
       <div class="wk">
-        <div class="d s4 qa">22</div><div class="d s4 fix">23</div><div class="d s4 qa">24</div><div class="d s4 fix">25</div><div class="d mtg">26</div><div class="d">27</div><div class="d">28</div>
+        <div class="d s4">22</div><div class="d s4">23</div><div class="d s4">24</div><div class="d s4">25</div><div class="d mtg">26</div><div class="d">27</div><div class="d">28</div>
       </div>
       <div class="wk">
         <div class="d">29</div><div class="d">30</div><div class="d e"></div><div class="d e"></div><div class="d e"></div><div class="d e"></div><div class="d e"></div>
@@ -150,7 +158,7 @@
       <div class="sp-h">
         <div class="sp-dot s1"></div>
         <div class="sp-n">Sprint 4</div>
-        <div class="sp-dt">May 1 – May 14</div>
+        <div class="sp-dt">Apr 30 – May 14</div>
       </div>
       <div class="sec">
         <div class="sec-l">Front end</div>
