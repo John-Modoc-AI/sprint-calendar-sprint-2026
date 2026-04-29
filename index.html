@@ -48,12 +48,13 @@
   .d-h.sun { color: #C04848; }
   .d-h.sat { color: #185FA5; }
   .d { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 52px; font-size: 11px; border-radius: 4px; color: var(--color-text-secondary); gap: 1px; }
-  .d.e { color: transparent; }
-  .d.t { box-shadow: inset 0 0 0 1.5px var(--color-text-primary); font-weight: 500; color: var(--color-text-primary); }
+  .d.e { color: transparent; pointer-events: none; }
+  .d.today { box-shadow: inset 0 0 0 1.5px var(--color-text-primary); font-weight: 500; color: var(--color-text-primary); }
   .d.qa::after, .d.fix::after, .d.mtg::after, .d.ustrip::after { font-size: 8px; font-weight: 500; line-height: 1; opacity: 0.9; letter-spacing: 0.2px; }
   .d.qa::after   { content: 'QA'; }
   .d.fix::after  { content: 'Fix'; }
   .d.mtg::after  { content: 'Mtg'; }
+  .d.mtg.qa::after { content: 'Mtg · QA'; }
   .d.ustrip::after { content: 'US Trip'; }
   .s1 { background: #EEEDFE; color: #3C3489; }
   .s2 { background: #E1F5EE; color: #085041; }
@@ -71,13 +72,11 @@
     .ustrip { background: #5A5754 !important; color: #D4D2CE !important; }
   }
   .sps { display: flex; flex-direction: column; gap: 12px; }
-  .sp { padding: 14px; border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); display: flex; flex-direction: column; gap: 10px; }
+  .sp { padding: 14px; border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); display: flex; flex-direction: column; gap: 8px; }
   .sp-h { display: flex; align-items: center; gap: 8px; }
   .sp-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
   .sp-n { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
   .sp-dt { font-size: 11px; color: var(--color-text-secondary); margin-left: auto; }
-  .sec { display: flex; flex-direction: column; gap: 4px; }
-  .sec-l { font-size: 10px; color: var(--color-text-tertiary); font-weight: 500; }
   .sec-i { font-size: 12px; line-height: 1.55; color: var(--color-text-primary); margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 3px; }
   .sec-i li { padding-left: 10px; position: relative; }
   .sec-i li::before { content: ''; position: absolute; left: 0; top: 8px; width: 3px; height: 3px; border-radius: 50%; background: var(--color-text-tertiary); }
@@ -112,19 +111,19 @@
         <div class="d-h">Mon</div><div class="d-h">Tue</div><div class="d-h">Wed</div><div class="d-h">Thu</div><div class="d-h">Fri</div><div class="d-h sat">Sat</div><div class="d-h sun">Sun</div>
       </div>
       <div class="wk">
-        <div class="d e">27</div><div class="d e">28</div><div class="d t">29</div><div class="d s1 mtg">30</div><div class="d s1 holiday">1</div><div class="d">2</div><div class="d">3</div>
+        <div class="d e">27</div><div class="d e">28</div><div class="d e">29</div><div class="d s1 mtg" data-date="2026-04-30">30</div><div class="d s1 holiday" data-date="2026-05-01">1</div><div class="d">2</div><div class="d">3</div>
       </div>
       <div class="wk">
-        <div class="d s1">4</div><div class="d s1 holiday">5</div><div class="d s1">6</div><div class="d s1 fix">7</div><div class="d s1 mtg">8</div><div class="d">9</div><div class="d">10</div>
+        <div class="d s1" data-date="2026-05-04">4</div><div class="d s1 holiday" data-date="2026-05-05">5</div><div class="d s1" data-date="2026-05-06">6</div><div class="d s1" data-date="2026-05-07">7</div><div class="d s1 mtg" data-date="2026-05-08">8</div><div class="d">9</div><div class="d">10</div>
       </div>
       <div class="wk">
-        <div class="d s1 qa">11</div><div class="d s1 fix">12</div><div class="d s1 qa">13</div><div class="d s1 fix">14</div><div class="d s2 mtg">15</div><div class="d">16</div><div class="d">17</div>
+        <div class="d s1 qa" data-date="2026-05-11">11</div><div class="d s1 fix" data-date="2026-05-12">12</div><div class="d s1 qa" data-date="2026-05-13">13</div><div class="d s1 fix" data-date="2026-05-14">14</div><div class="d s2 mtg" data-date="2026-05-15">15</div><div class="d">16</div><div class="d">17</div>
       </div>
       <div class="wk">
-        <div class="d s2">18</div><div class="d s2">19</div><div class="d s2">20</div><div class="d s2">21</div><div class="d s2 mtg">22</div><div class="d">23</div><div class="d">24</div>
+        <div class="d s2" data-date="2026-05-18">18</div><div class="d s2" data-date="2026-05-19">19</div><div class="d s2" data-date="2026-05-20">20</div><div class="d s2" data-date="2026-05-21">21</div><div class="d s2 mtg qa" data-date="2026-05-22">22</div><div class="d">23</div><div class="d">24</div>
       </div>
       <div class="wk">
-        <div class="d s2 holiday">25</div><div class="d s2 fix">26</div><div class="d s2 qa">27</div><div class="d s2 fix">28</div><div class="d s3 mtg">29</div><div class="d">30</div><div class="d">31</div>
+        <div class="d s2 holiday" data-date="2026-05-25">25</div><div class="d s2 fix" data-date="2026-05-26">26</div><div class="d s2 qa" data-date="2026-05-27">27</div><div class="d s2 fix" data-date="2026-05-28">28</div><div class="d s3 mtg" data-date="2026-05-29">29</div><div class="d">30</div><div class="d">31</div>
       </div>
     </div>
 
@@ -134,16 +133,16 @@
         <div class="d-h">Mon</div><div class="d-h">Tue</div><div class="d-h">Wed</div><div class="d-h">Thu</div><div class="d-h">Fri</div><div class="d-h sat">Sat</div><div class="d-h sun">Sun</div>
       </div>
       <div class="wk">
-        <div class="d s3">1</div><div class="d s3">2</div><div class="d s3 holiday">3</div><div class="d s3">4</div><div class="d s3 mtg">5</div><div class="d">6</div><div class="d">7</div>
+        <div class="d s3" data-date="2026-06-01">1</div><div class="d s3" data-date="2026-06-02">2</div><div class="d s3 holiday" data-date="2026-06-03">3</div><div class="d s3" data-date="2026-06-04">4</div><div class="d s3 mtg" data-date="2026-06-05">5</div><div class="d">6</div><div class="d">7</div>
       </div>
       <div class="wk">
-        <div class="d s3 qa">8</div><div class="d s3 fix">9</div><div class="d s3 qa">10</div><div class="d s3 fix">11</div><div class="d s4 mtg">12</div><div class="d">13</div><div class="d">14</div>
+        <div class="d s3 qa" data-date="2026-06-08">8</div><div class="d s3 fix" data-date="2026-06-09">9</div><div class="d s3 qa" data-date="2026-06-10">10</div><div class="d s3 fix" data-date="2026-06-11">11</div><div class="d s4 mtg" data-date="2026-06-12">12</div><div class="d">13</div><div class="d">14</div>
       </div>
       <div class="wk">
-        <div class="d ustrip">15</div><div class="d ustrip">16</div><div class="d ustrip">17</div><div class="d ustrip">18</div><div class="d ustrip mtg">19</div><div class="d ustrip">20</div><div class="d ustrip">21</div>
+        <div class="d ustrip" data-date="2026-06-15">15</div><div class="d ustrip" data-date="2026-06-16">16</div><div class="d ustrip" data-date="2026-06-17">17</div><div class="d ustrip" data-date="2026-06-18">18</div><div class="d ustrip mtg" data-date="2026-06-19">19</div><div class="d ustrip">20</div><div class="d ustrip">21</div>
       </div>
       <div class="wk">
-        <div class="d s4">22</div><div class="d s4">23</div><div class="d s4">24</div><div class="d s4">25</div><div class="d mtg">26</div><div class="d">27</div><div class="d">28</div>
+        <div class="d s4" data-date="2026-06-22">22</div><div class="d s4" data-date="2026-06-23">23</div><div class="d s4" data-date="2026-06-24">24</div><div class="d s4" data-date="2026-06-25">25</div><div class="d mtg" data-date="2026-06-26">26</div><div class="d">27</div><div class="d">28</div>
       </div>
       <div class="wk">
         <div class="d">29</div><div class="d">30</div><div class="d e"></div><div class="d e"></div><div class="d e"></div><div class="d e"></div><div class="d e"></div>
@@ -155,99 +154,57 @@
   <div class="sps">
 
     <div class="sp">
-      <div class="sp-h">
-        <div class="sp-dot s1"></div>
-        <div class="sp-n">Sprint 4</div>
-        <div class="sp-dt">Apr 30 – May 14</div>
-      </div>
-      <div class="sec">
-        <div class="sec-l">Front end</div>
-        <ul class="sec-i">
-          <li>Temperature + AI insight</li>
-          <li>Medicine + AI insight</li>
-          <li>Note + AI insight</li>
-        </ul>
-      </div>
-      <div class="sec">
-        <div class="sec-l">Backend</div>
-        <ul class="sec-i">
-          <li>Fever · Weight photo</li>
-          <li>Height</li>
-          <li>AI Coach prompt swap</li>
-          <li>RB Weight</li>
-          <li>RB Height</li>
-        </ul>
-      </div>
+      <div class="sp-h"><div class="sp-dot s1"></div><div class="sp-n">Sprint 4</div><div class="sp-dt">Apr 30 – May 14</div></div>
+      <ul class="sec-i">
+        <li>Temperature + AI insight</li>
+        <li>Note + AI insight</li>
+        <li>Weight + AI insight</li>
+        <li>Height + AI insight</li>
+      </ul>
     </div>
 
     <div class="sp">
-      <div class="sp-h">
-        <div class="sp-dot s2"></div>
-        <div class="sp-n">Sprint 5</div>
-        <div class="sp-dt">May 15 – May 28</div>
-      </div>
-      <div class="sec">
-        <div class="sec-l">Front end</div>
-        <ul class="sec-i">
-          <li>Main + Daily action item</li>
-          <li>PES + AI insight</li>
-          <li>Weight + AI insight</li>
-          <li>Height + AI insight</li>
-        </ul>
-      </div>
-      <div class="sec">
-        <div class="sec-l">Backend</div>
-        <ul class="sec-i">
-          <li>AI Q&amp;A API v1</li>
-          <li>Day2 / Day3 reactivation push</li>
-          <li>One action item on main page (BE)</li>
-          <li>Episode continuity (BE)</li>
-        </ul>
-      </div>
+      <div class="sp-h"><div class="sp-dot s2"></div><div class="sp-n">Sprint 5</div><div class="sp-dt">May 15 – May 28</div></div>
+      <ul class="sec-i">
+        <li>Main + Daily action item</li>
+        <li>PES + AI insight</li>
+        <li>Medicine + AI insight</li>
+      </ul>
     </div>
 
     <div class="sp">
-      <div class="sp-h">
-        <div class="sp-dot s3"></div>
-        <div class="sp-n">Sprint 6</div>
-        <div class="sp-dt">May 29 – Jun 11</div>
-      </div>
-      <div class="sec">
-        <div class="sec-l">Front end</div>
-        <ul class="sec-i">
-          <li>Account + Family Mode</li>
-          <li>Diaper + AI insight</li>
-          <li>Bottle + AI insight</li>
-          <li>Breast + AI insight</li>
-          <li>Solid + AI insight</li>
-        </ul>
-      </div>
-      <div class="sec">
-        <div class="sec-l">Backend</div>
-        <ul class="sec-i">
-          <li>AI Q&amp;A full integration</li>
-          <li>Family Mode (BE)</li>
-        </ul>
-      </div>
+      <div class="sp-h"><div class="sp-dot s3"></div><div class="sp-n">Sprint 6</div><div class="sp-dt">May 29 – Jun 11</div></div>
+      <ul class="sec-i">
+        <li>Account + Family Mode</li>
+        <li>Diaper + AI insight</li>
+        <li>Bottle + AI insight</li>
+        <li>Breast + AI insight</li>
+        <li>Solid + AI insight</li>
+      </ul>
     </div>
 
     <div class="sp">
-      <div class="sp-h">
-        <div class="sp-dot s4"></div>
-        <div class="sp-n">Sprint 7</div>
-        <div class="sp-dt">Jun 12 – Jun 25</div>
-      </div>
-      <div class="sec">
-        <div class="sec-l">QA</div>
-        <ul class="sec-i">
-          <li>Full integration QA</li>
-        </ul>
-      </div>
+      <div class="sp-h"><div class="sp-dot s4"></div><div class="sp-n">Sprint 7</div><div class="sp-dt">Jun 12 – Jun 25</div></div>
+      <ul class="sec-i">
+        <li>Full integration QA</li>
+      </ul>
     </div>
 
   </div>
 </div>
 
 </div>
+
+<script>
+(function() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const key = `${yyyy}-${mm}-${dd}`;
+  const el = document.querySelector(`.d[data-date="${key}"]`);
+  if (el) el.classList.add('today');
+})();
+</script>
 </body>
 </html>
