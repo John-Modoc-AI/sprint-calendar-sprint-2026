@@ -20,7 +20,7 @@ Static, password-protected sprint calendar. Page content is AES-encrypted client
 
    ```
    npx staticrypt index.src.html -p fevercoach --short \
-     --template-title "Sprint Calendar" \
+     --template-title "Sprint Calendar 2026" \
      --template-instructions "Hint: our app name (all lowercase)" \
      --template-button "Enter" \
      --template-error "Wrong password" \
